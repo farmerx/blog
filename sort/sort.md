@@ -56,6 +56,30 @@ func insertSort(arr []int){
       }
    }
 }
-
-
 ```
+
+# golang sort package
+
+type sortSlice []int
+
+func(s sortSlice) Len() int{
+   return s
+}
+
+func(s sortSlice)Less(i, j int)bool {
+   return s[i]>s[j]
+}
+
+func (s sortSclice) Swap(i，j) {
+  s[i],s[j]=s[j],s[i]
+}
+
+
+
+
+
+
+
+
+
+
