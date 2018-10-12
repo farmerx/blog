@@ -1,0 +1,26 @@
+   cLog = make(chan monT)
+
+	src := os.Stdin
+	//src := bufio.NewReader(os.Stdin)
+
+	dst := os.Stdout
+	//dst := bufio.NewWriter(os.Stdout)
+	//defer dst.Flush()
+
+	// Bucket adding 100KB every second, holding max 100KB
+	bucket := ratelimit.NewBucketWithRate(1000*1024, 1000*1024)
+	//bucket := ratelimit.NewBucketWithRate(10*100, 10*100)
+	_ = bucket
+
+	Green2("Start monitoring..")
+	go monitor(bucket)
+	Log2("Starting Capacity: %v", <-cLog)
+
+	start := time.Now()
+	// Copy source to destination, but wrap our reader with rate limited one
+	//n, err := io.Copy(dst, src)
+	n, err := io.Copy(dst, ratelimit.Reader(src, bucket))
+	if err != nil {
+		Red2("E: %v", err)
+	}
+	Green2("Copied %d bytes in %s", n, time.Since(start))
