@@ -91,6 +91,7 @@ http://officeopenxml.com/anatomyofOOXML-xlsx.php
 
 ## Parts Shared by Other OOXML Documents
 任何OOXML包中都可能出现许多部件类型。以下是SpreadsheetML文档的一些更相关的部分。
+
 | 部分   |      描述   |
 |----------|:-------------:|
 |嵌入式包|包含引用包的内部或外部的完整包。例如，SpreadsheetML文档可能包含Wordprocessing或PresentationML文档。|
