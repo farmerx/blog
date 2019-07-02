@@ -50,11 +50,11 @@ http://officeopenxml.com/anatomyofOOXML-xlsx.php
 
 例如，工作表可能包含如下链接：
 ```
-<w：hyperlink ref ="A11" r：id ="rId4">
+<w:hyperlink ref ="A11" r:id ="rId4">
 ```
-在R：ID =“rId4”引用关系的一部分工作表（worksheet1.xml.rels）内的下列关系。
+在R:ID ="rId4"引用关系的一部分工作表（worksheet1.xml.rels）内的下列关系。
 ```
-<Relationship Id ="rId4" Type ="http://../hyperlink" Target ="http://www.google.com/" TargetMode ="External"/>
+<Relationship Id="rId4" Type="http://../hyperlink" Target ="http://www.google.com/" TargetMode ="External"/>
 ```
 对于隐式关系，没有对<Relationship> Id的直接引用。相反，参考是理解的。
 
