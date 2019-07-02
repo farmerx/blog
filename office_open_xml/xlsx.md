@@ -10,10 +10,32 @@ http://officeopenxml.com/anatomyofOOXML-xlsx.php
 只需解压缩.xlsx文件，即可查看包含SpreadsheetML文件的文件结构和文件。
 
 ```
- - _rels
+ - _rels  关系:每个包都包含一个关系部分，用于定义其他部分与包外部资源之间的关系。这将关系与内容分开，使得在不更改引用目标的源的情况下更改关系变得容易。
  - docProps
  - xl
- - [Content_Types].xml
+ - [Content_Types].xml  内容类型: 每个包的根路径下都会有
 ```
 
 部件的数量和类型将根据电子表格中的内容而有所不同，但始终会有[Content_Types] .xml，一个或多个关系部件，工作簿部件和至少一个工作表。电子表格的核心数据包含在工作表部分中，在xsxl内容概述中有更详细的讨论(http://officeopenxml.com/SScontentOverview.php)。
+
+## [Content_Types].xml 
+
+每个包都必须有一个[Content_Types] .xml，在包的根目录中找到。此文件包含包中所有部件的内容类型的列表。每个部分及其类型必须列在[Content_Types] .xml中。以下是主要内容部分的内容类型：
+```
+<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>
+```
+在将新零件添加到包装时，请务必牢记这一点。
+
+## _rels
+
+每个包都包含一个关系部分，用于定义其他部分与包外部资源之间的关系。这将关系与内容分开，使得在不更改引用目标的源的情况下更改关系变得容易。
+```
+- _rels
+- - .rels
+```
+对于OOXML包，_rels文件夹中始终存在关系部分（.rels），用于标识包的起始部分或包关系。例如，以下定义内容的开始部分的标识：
+```
+<Relationship Id ="rId1" Type ="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target ="xl / workbook.xml"/>
+```
+对于app.xml和core.xml，.rels中通常也存在关系。
+
