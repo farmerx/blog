@@ -89,3 +89,15 @@ http://officeopenxml.com/anatomyofOOXML-xlsx.php
 |工作表(Worksheet)|包含给定工作表的所有数据，公式和特征。包中的每个工作表都有一个这样的部分。|
 
 
+## Parts Shared by Other OOXML Documents
+任何OOXML包中都可能出现许多部件类型。以下是SpreadsheetML文档的一些更相关的部分。
+| 部分   |      描述   |
+|----------|:-------------:|
+|嵌入式包|包含引用包的内部或外部的完整包。例如，SpreadsheetML文档可能包含Wordprocessing或PresentationML文档。|
+|扩展文件属性（通常位于docProps / app.xml）|包含特定于OOXML文档的属性 - 属性，例如使用的模板，页面和单词的数量，以及应用程序名称和版本|
+|文件属性，核心|核心文件属性使用户能够发现和设置包中的公共属性 - 属性，例如创建者名称，创建日期，标题。尽可能使用Dublin Core属性（用于描述资源的一组元数据术语）|
+|图片|电子表格通常包含图像。图像可以作为zip项存储在包中。必须通过图像部件关系和适当的内容类型来标识该项目。
+|主题|DrawingML是OOXML文档类型的共享语言。它包括当电子表格使用主题时包含在SpreadsheetML文档中的主题部分。主题部分包含有关文档主题的信息，即颜色方案，字体和格式方案等信息。|
+
+
+
