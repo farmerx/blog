@@ -39,3 +39,26 @@ http://officeopenxml.com/anatomyofOOXML-xlsx.php
 ```
 对于app.xml和core.xml，.rels中通常也存在关系。
 
+除了包的关系部分之外，作为一个或多个关系的源的每个部分将具有其自己的关系部分。每个这样的关系部分都在零件的_rels子文件夹中找到，并通过将“.rels”附加到零件的名称来命名。
+
+通常，主要内容部分（workbook.xml）具有自己的关系部分（workbook.xml.rels）。它将包含与内容其他部分的关系，例如sheet1.xml，sharedStrings.xml，styles.xml，theme1，xml以及外部链接的URI。
+
+```
+
+```
+关系可以是显式的，也可以是隐式的。对于显式关系，使用<Relationship>元素的Id属性引用资源 。即， 标识在源直接映射到标识的关系的项目，与显式引用到目标。
+
+例如，工作表可能包含如下链接：
+```
+<w：hyperlink ref ="A11" r：id ="rId4">
+```
+在R：ID =“rId4”引用关系的一部分工作表（worksheet1.xml.rels）内的下列关系。
+```
+<Relationship Id ="rId4" Type ="http://../hyperlink" Target ="http://www.google.com/" TargetMode ="External"/>
+```
+对于隐式关系，没有对<Relationship> Id的直接引用。相反，参考是理解的。
+
+
+
+
+
