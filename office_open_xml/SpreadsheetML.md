@@ -31,3 +31,28 @@ B1：B4，其为细胞B1-B4的范围，包括端值。 结束说明]
 | Root Namespace |  http://purl.oclc.org/ooxml/spreadsheetml/main  | 
 | Source Relationship |http://purl.oclc.org/ooxml/officeDocument/relationships/calcChain |
 
+此部件类型的实例包含对工作簿中所有工作表中所有单元格的有序引用集其值由任何公式计算。 排序允许计算相互关联的单元格公式加载工作表以供使用时的正确顺序。
+包裹不得超过一个计算链部分。 如果存在，该部分应成为目标工作手册部分的隐含关系（第12.3.23节）。
+
+示例：以下工作簿部件关系项包含与计算链部件的关系，它存储在ZIP项calcChain.xml中：
+```
+.../xl/_rels/workbook.xml.rels
+<Relationships xmlns="…">
+ <Relationship Id="rId7"
+ Type="http://…/calcChain" Target="calcChain.xml"/>
+</Relationships>
+```
+Cells D8, E8, and F8 each contain a value that is the result of calculations that shall be performed inthe order E8, D8, F8:
+```
+<calcChain xmlns="…">
+ <c r="E8" i="1"/>
+ <c r="D8"/>
+ <c r="F8" s="1"/>
+</calcChain>
+```
+end example
+
+
+计算链部分应位于包含关系部分的包装内（表示从语法上讲，Relationship元素的TargetMode属性应为Internal）。计算链部分不得与ECMA-376定义的任何部分具有隐式或显式关系。
+
+
