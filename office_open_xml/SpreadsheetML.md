@@ -19,3 +19,6 @@ B1：B4，其为细胞B1-B4的范围，包括端值。 结束说明]
 * workbook（工作簿） - 工作表的集合。
 * worksheet（工作表） - 按行和列组织的二维单元格网格。
 
+## 包结构（package structure）
+
+
