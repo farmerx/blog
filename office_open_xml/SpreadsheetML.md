@@ -22,6 +22,8 @@ B1：B4，其为细胞B1-B4的范围，包括端值。 结束说明]
 ## 包结构（package structure）
 
 
+## Part Summary
+
 ### Calculation Chain Part（计算链部分）
 
 
@@ -54,5 +56,16 @@ end example
 
 
 计算链部分应位于包含关系部分的包装内（表示从语法上讲，Relationship元素的TargetMode属性应为Internal）。计算链部分不得与ECMA-376定义的任何部分具有隐式或显式关系。
+
+
+### Chartsheet Part
+
+|    |         |  
+|----------|:-------------:|
+| Content Type | application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml |
+| Root Namespace |  http://purl.oclc.org/ooxml/spreadsheetml/main  | 
+| Source Relationship |http://purl.oclc.org/ooxml/officeDocument/relationships/chartsheet |
+
+
 
 
